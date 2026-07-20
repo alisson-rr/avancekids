@@ -15,7 +15,6 @@ import {
   Play,
 } from "lucide-react";
 
-
 import heroFamily from "@/assets/hero-family.jpg";
 import featureReading from "@/assets/feature-reading.jpg";
 import featureDrawing from "@/assets/feature-drawing.jpg";
@@ -156,7 +155,8 @@ function LandingPage() {
               Admin
             </a>
             <a
-              href="/AvanceKids-1.0.0.apk" download
+              href="/AvanceKids-1.0.0.apk"
+              download
               className="hidden rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition-transform hover:scale-[1.02] md:inline-flex"
             >
               Baixar o app
@@ -193,7 +193,8 @@ function LandingPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href="/AvanceKids-1.0.0.apk" download
+                href="/AvanceKids-1.0.0.apk"
+                download
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
               >
                 Começar agora
@@ -341,8 +342,9 @@ function LandingPage() {
               {areas.map((a, i) => (
                 <div
                   key={a.title}
-                  className={`rounded-3xl border border-border bg-background p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-soft ${i === 0 ? "sm:col-span-2" : ""
-                    }`}
+                  className={`rounded-3xl border border-border bg-background p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-soft ${
+                    i === 0 ? "sm:col-span-2" : ""
+                  }`}
                 >
                   <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
                     <a.icon className="h-5 w-5" />
@@ -517,7 +519,8 @@ function LandingPage() {
                 </span>
               </a>
               <a
-                href="/AvanceKids-1.0.0.apk" download
+                href="/AvanceKids-1.0.0.apk"
+                download
                 className="inline-flex items-center gap-3 rounded-2xl bg-foreground px-6 py-3.5 text-left text-primary-foreground transition-transform hover:scale-[1.02]"
               >
                 <Play className="h-6 w-6" />
@@ -538,7 +541,8 @@ function LandingPage() {
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-4 py-10 sm:flex-row sm:px-6 lg:px-8">
           <img src="/icons.svg" alt="Avance Kids" className="h-10 w-auto" />
           <p className="text-center text-xs text-muted-foreground sm:text-right">
-            © {new Date().getFullYear()} Avance Kids. A família em apoio ao desenvolvimento infantil.
+            © {new Date().getFullYear()} Avance Kids. A família em apoio ao desenvolvimento
+            infantil.
           </p>
         </div>
       </footer>

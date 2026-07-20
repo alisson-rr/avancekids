@@ -51,22 +51,22 @@
   --radius: 1rem;
 
   /* Brand */
-  --primary: oklch(0.56 0.22 262);         /* #0E5DFD */
+  --primary: oklch(0.56 0.22 262); /* #0E5DFD */
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.65 0.19 300);       /* #9F67FF */
+  --secondary: oklch(0.65 0.19 300); /* #9F67FF */
   --secondary-foreground: oklch(1 0 0);
-  --accent: oklch(0.75 0.19 130);          /* #83C403 lime */
+  --accent: oklch(0.75 0.19 130); /* #83C403 lime */
   --accent-foreground: oklch(0.2 0.02 260);
 
   /* Surfaces */
-  --background: oklch(0.985 0.003 250);    /* #FAFAFA */
-  --foreground: oklch(0.28 0.01 260);      /* #323232 */
+  --background: oklch(0.985 0.003 250); /* #FAFAFA */
+  --foreground: oklch(0.28 0.01 260); /* #323232 */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.28 0.01 260);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.28 0.01 260);
   --muted: oklch(0.96 0.005 260);
-  --muted-foreground: oklch(0.45 0.01 260);  /* #5C5C5C */
+  --muted-foreground: oklch(0.45 0.01 260); /* #5C5C5C */
 
   /* Feedback */
   --success: oklch(0.55 0.16 150);
@@ -94,7 +94,10 @@
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
   }
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
@@ -126,17 +129,29 @@
 }
 
 @keyframes float-slow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
 }
 @utility animate-float-slow {
   animation: float-slow 6s ease-in-out infinite;
 }
 
 @keyframes blob {
-  0%, 100% { transform: translate(0,0) scale(1); }
-  33% { transform: translate(30px,-20px) scale(1.05); }
-  66% { transform: translate(-20px,20px) scale(0.97); }
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -20px) scale(1.05);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.97);
+  }
 }
 @utility animate-blob {
   animation: blob 18s ease-in-out infinite;

@@ -89,7 +89,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Avance Kids — Desenvolvimento infantil com base em ABA" },
-      { name: "twitter:description", content: "App para pais e cuidadores que avalia as habilidades reais da criança e cria um plano de ensino adaptado, com base na Terapia ABA. Ideal para crianças neurodivergentes." },
+      {
+        name: "twitter:description",
+        content:
+          "App para pais e cuidadores que avalia as habilidades reais da criança e cria um plano de ensino adaptado, com base na Terapia ABA. Ideal para crianças neurodivergentes.",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
