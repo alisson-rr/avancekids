@@ -135,10 +135,7 @@ function LandingPage() {
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <a href="#top" className="flex items-center gap-2">
-            <img src="/icons.svg" alt="Avance Kids" className="h-9 w-9" />
-            <span className="text-lg font-bold tracking-tight">
-              Avance <span className="text-primary">Kids</span>
-            </span>
+            <img src="/Logo-nome.svg" alt="Avance Kids" className="h-16 w-46" />
           </a>
           <nav className="hidden items-center gap-8 md:flex">
             {navLinks.map((l) => (
@@ -344,9 +341,8 @@ function LandingPage() {
               {areas.map((a, i) => (
                 <div
                   key={a.title}
-                  className={`rounded-3xl border border-border bg-background p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-soft ${
-                    i === 0 ? "sm:col-span-2" : ""
-                  }`}
+                  className={`rounded-3xl border border-border bg-background p-6 shadow-card transition-all hover:-translate-y-1 hover:shadow-soft ${i === 0 ? "sm:col-span-2" : ""
+                    }`}
                 >
                   <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
                     <a.icon className="h-5 w-5" />
