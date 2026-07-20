@@ -88,10 +88,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Avalie as habilidades reais do seu filho e receba um plano de ensino adaptado à realidade funcional dele.",
+          "App para pais e cuidadores que avalia as habilidades reais da criança e cria um plano de ensino adaptado, com base na Terapia ABA. Ideal para crianças neurodivergentes.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Avance Kids — Desenvolvimento infantil com base em ABA" },
+      { name: "twitter:description", content: "App para pais e cuidadores que avalia as habilidades reais da criança e cria um plano de ensino adaptado, com base na Terapia ABA. Ideal para crianças neurodivergentes." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b7306c9f-1dea-4fb4-9cb4-010210b8c84d/id-preview-44a60ab8--a44a94bd-c9f3-45af-be22-709611b5c9da.lovable.app-1784574507690.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b7306c9f-1dea-4fb4-9cb4-010210b8c84d/id-preview-44a60ab8--a44a94bd-c9f3-45af-be22-709611b5c9da.lovable.app-1784574507690.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
