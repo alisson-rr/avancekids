@@ -159,7 +159,7 @@ function LandingPage() {
               Admin
             </a>
             <a
-              href="#download"
+              href="/AvanceKids-1.0.0.apk" download
               className="hidden rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition-transform hover:scale-[1.02] md:inline-flex"
             >
               Baixar o app
@@ -196,7 +196,7 @@ function LandingPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href="#download"
+                href="/AvanceKids-1.0.0.apk" download
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
               >
                 Começar agora
@@ -521,15 +521,15 @@ function LandingPage() {
                 </span>
               </a>
               <a
-                href="#"
+                href="/AvanceKids-1.0.0.apk" download
                 className="inline-flex items-center gap-3 rounded-2xl bg-foreground px-6 py-3.5 text-left text-primary-foreground transition-transform hover:scale-[1.02]"
               >
                 <Play className="h-6 w-6" />
                 <span>
                   <span className="block text-[10px] uppercase tracking-widest opacity-70">
-                    Disponível no
+                    Baixar
                   </span>
-                  <span className="block text-sm font-semibold">Google Play</span>
+                  <span className="block text-sm font-semibold">Arquivo APK</span>
                 </span>
               </a>
             </div>
