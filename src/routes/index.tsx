@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import {
   ArrowRight,
   CheckCircle2,
@@ -13,6 +14,8 @@ import {
   Star,
   Apple,
   Play,
+  Menu,
+  X,
 } from "lucide-react";
 
 import heroFamily from "@/assets/hero-family.jpg";
@@ -128,13 +131,15 @@ const faqs = [
 ];
 
 function LandingPage() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* NAV */}
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <a href="#top" className="flex items-center gap-2">
-            <img src="/Logo-nome.svg" alt="Avance Kids" className="h-16 w-46" />
+            <img src="/Logo-nome.svg" alt="Avance Kids" className="h-10 w-auto sm:h-16 sm:w-46" />
           </a>
           <nav className="hidden items-center gap-8 md:flex">
             {navLinks.map((l) => (
@@ -147,22 +152,46 @@ function LandingPage() {
               </a>
             ))}
           </nav>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             <a
               href="https://avance-kids-admin.vercel.app/login"
-              className="hidden rounded-full border border-primary/20 bg-primary/5 px-5 py-2.5 text-sm font-semibold text-primary transition-transform hover:scale-[1.02] md:inline-flex"
+              className="inline-flex rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-xs font-semibold text-primary transition-transform hover:scale-[1.02] sm:px-5 sm:py-2.5 sm:text-sm"
             >
               Admin
             </a>
             <a
               href="/AvanceKids-1.0.0.apk"
               download
-              className="hidden rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-soft transition-transform hover:scale-[1.02] md:inline-flex"
+              className="inline-flex rounded-full bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground shadow-soft transition-transform hover:scale-[1.02] sm:px-5 sm:py-2.5 sm:text-sm"
             >
-              Baixar o app
+              Baixar<span className="hidden sm:inline">&nbsp;o app</span>
             </a>
+            <button
+              className="ml-1 inline-flex items-center justify-center rounded-md p-1 text-foreground focus:outline-none md:hidden"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
           </div>
         </div>
+
+        {/* MOBILE MENU */}
+        {isMobileMenuOpen && (
+          <div className="border-t border-border/60 bg-background/95 px-4 py-4 md:hidden backdrop-blur-md absolute w-full shadow-md">
+            <nav className="flex flex-col gap-4">
+              {navLinks.map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="block text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {l.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+        )}
       </header>
 
       {/* HERO */}
