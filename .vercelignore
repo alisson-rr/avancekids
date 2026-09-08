@@ -1,0 +1,12 @@
+.env
+.env.*
+.nitro/
+.output/
+.tanstack/
+.vercel/
+.vinxi/
+dist/
+dist-ssr/
+node_modules/
+public/*.apk
+*.log
