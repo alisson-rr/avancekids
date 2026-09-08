@@ -12,7 +12,7 @@ import {
   Puzzle,
   ShieldCheck,
   Star,
-  Apple,
+  MonitorSmartphone,
   Play,
   Menu,
   X,
@@ -34,6 +34,11 @@ const navLinks = [
   { label: "Depoimentos", href: "#depoimentos" },
   { label: "FAQ", href: "#faq" },
 ];
+
+const apkFolderUrl =
+  "https://drive.google.com/drive/folders/1Vo3DT-KJtimqUeFLAYQHlf6h49HqzY9T?usp=drive_link";
+const pwaBaseUrl = import.meta.env.VITE_PWA_URL || "https://avance-kids.vercel.app";
+const pwaInstallUrl = `${pwaBaseUrl.replace(/\/+$/, "")}/?install=1`;
 
 const areas = [
   {
@@ -138,10 +143,10 @@ function LandingPage() {
       {/* NAV */}
       <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          <a href="#top" className="flex items-center gap-2">
-            <img src="/Logo-nome.svg" alt="Avance Kids" className="h-10 w-auto sm:h-16 sm:w-46" />
+          <a href="#top" className="flex shrink-0 items-center gap-2">
+            <img src="/Logo-nome.svg" alt="Avance Kids" className="h-auto w-28 sm:w-46" />
           </a>
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="hidden items-center gap-5 lg:flex xl:gap-8">
             {navLinks.map((l) => (
               <a
                 key={l.href}
@@ -155,20 +160,29 @@ function LandingPage() {
           <div className="flex items-center gap-2 sm:gap-4">
             <a
               href="https://avance-kids-admin.vercel.app/login"
-              className="inline-flex rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-xs font-semibold text-primary transition-transform hover:scale-[1.02] sm:px-5 sm:py-2.5 sm:text-sm"
+              className="hidden rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-xs font-semibold text-primary transition-transform hover:scale-[1.02] sm:inline-flex sm:px-5 sm:py-2.5 sm:text-sm"
             >
               Admin
             </a>
             <a
-              href="/AvanceKids-1.0.0.apk"
-              download
-              className="inline-flex rounded-full bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground shadow-soft transition-transform hover:scale-[1.02] sm:px-5 sm:py-2.5 sm:text-sm"
+              href={pwaInstallUrl}
+              className="inline-flex rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-xs font-semibold text-primary transition-transform hover:scale-[1.02] sm:px-5 sm:py-2.5 sm:text-sm"
+            >
+              Acessar<span className="hidden sm:inline">&nbsp;app</span>
+            </a>
+            <a
+              href={apkFolderUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="hidden rounded-full bg-primary px-3 py-1.5 text-xs font-semibold text-primary-foreground shadow-soft transition-transform hover:scale-[1.02] sm:inline-flex sm:px-5 sm:py-2.5 sm:text-sm"
             >
               Baixar<span className="hidden sm:inline">&nbsp;o app</span>
             </a>
             <button
-              className="ml-1 inline-flex items-center justify-center rounded-md p-1 text-foreground focus:outline-none md:hidden"
+              className="ml-1 inline-flex items-center justify-center rounded-md p-1 text-foreground focus:outline-none lg:hidden"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"}
+              aria-expanded={isMobileMenuOpen}
             >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -177,8 +191,24 @@ function LandingPage() {
 
         {/* MOBILE MENU */}
         {isMobileMenuOpen && (
-          <div className="border-t border-border/60 bg-background/95 px-4 py-4 md:hidden backdrop-blur-md absolute w-full shadow-md">
+          <div className="absolute w-full border-t border-border/60 bg-background/95 px-4 py-4 shadow-md backdrop-blur-md lg:hidden">
             <nav className="flex flex-col gap-4">
+              <a
+                href="https://avance-kids-admin.vercel.app/login"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block text-sm font-semibold text-primary sm:hidden"
+              >
+                Admin
+              </a>
+              <a
+                href={apkFolderUrl}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block text-sm font-semibold text-primary sm:hidden"
+              >
+                Baixar APK
+              </a>
               {navLinks.map((l) => (
                 <a
                   key={l.href}
@@ -222,8 +252,7 @@ function LandingPage() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href="/AvanceKids-1.0.0.apk"
-                download
+                href={pwaInstallUrl}
                 className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
               >
                 Começar agora
@@ -531,25 +560,26 @@ function LandingPage() {
               Comece hoje a avançar com seu filho.
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-base text-white/85">
-              Baixe o Avance Kids e transforme a rotina da sua família em pequenos passos que fazem
-              diferença de verdade.
+              Acesse o Avance Kids pelo navegador ou baixe o APK e transforme a rotina da sua
+              família em pequenos passos que fazem diferença de verdade.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <a
-                href="#"
+                href={pwaInstallUrl}
                 className="inline-flex items-center gap-3 rounded-2xl bg-foreground px-6 py-3.5 text-left text-primary-foreground transition-transform hover:scale-[1.02]"
               >
-                <Apple className="h-6 w-6" />
+                <MonitorSmartphone className="h-6 w-6" />
                 <span>
                   <span className="block text-[10px] uppercase tracking-widest opacity-70">
-                    Baixar na
+                    Usar
                   </span>
-                  <span className="block text-sm font-semibold">App Store</span>
+                  <span className="block text-sm font-semibold">Pelo navegador</span>
                 </span>
               </a>
               <a
-                href="/AvanceKids-1.0.0.apk"
-                download
+                href={apkFolderUrl}
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex items-center gap-3 rounded-2xl bg-foreground px-6 py-3.5 text-left text-primary-foreground transition-transform hover:scale-[1.02]"
               >
                 <Play className="h-6 w-6" />
