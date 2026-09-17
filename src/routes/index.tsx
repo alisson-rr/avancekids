@@ -159,12 +159,6 @@ function LandingPage() {
           </nav>
           <div className="flex items-center gap-2 sm:gap-4">
             <a
-              href="https://avance-kids-admin.vercel.app/login"
-              className="hidden rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-xs font-semibold text-primary transition-transform hover:scale-[1.02] sm:inline-flex sm:px-5 sm:py-2.5 sm:text-sm"
-            >
-              Admin
-            </a>
-            <a
               href={pwaInstallUrl}
               className="inline-flex rounded-full border border-primary/20 bg-primary/5 px-3 py-1.5 text-xs font-semibold text-primary transition-transform hover:scale-[1.02] sm:px-5 sm:py-2.5 sm:text-sm"
             >
@@ -193,13 +187,6 @@ function LandingPage() {
         {isMobileMenuOpen && (
           <div className="absolute w-full border-t border-border/60 bg-background/95 px-4 py-4 shadow-md backdrop-blur-md lg:hidden">
             <nav className="flex flex-col gap-4">
-              <a
-                href="https://avance-kids-admin.vercel.app/login"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block text-sm font-semibold text-primary sm:hidden"
-              >
-                Admin
-              </a>
               <a
                 href={apkFolderUrl}
                 target="_blank"
